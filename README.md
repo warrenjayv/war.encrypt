@@ -1,7 +1,8 @@
 # war.encrypt
-encrypt password file. place this file in the same directory. 
-. decryption option WIP 
-. file must have format:
+encrypt password file. <br />
+. place this file in the same directory. <br />
+. decryption option WIP <br />
+. file must have format:<br />
 ```
    name1 : <pass1>
    name2 : <pass2>
