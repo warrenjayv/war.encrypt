@@ -1,0 +1,44 @@
+#!/bin/bash
+
+# encryption utility
+# . read some password file
+# . read the file and encrypt it 
+# . update password as encrypted
+# . file must have format:
+# .   name1 : <pass1>
+# .   name2 : <pass2>
+# .         or 
+# .   name3 = <pass3>
+# .   name4 = <pass4>
+# .   ... 
+
+# file path
+_paf="passwords.txt"
+_key=~/".salt.enc"
+_tmp=~/".pass.tmp"
+_txt=~/".pass.txt"
+
+# temp file
+touch ~/pass.tmp
+
+# encrypt passwords in file 
+echo "encrypting..."
+while read -r line; do
+	_arr=($line)
+	if [[ ${_arr[0]} == "password" ]]; then 
+	 	echo ${_arr[2]} > $_tmp
+		openssl enc -aes-256-cbc -a -pbkdf2 -in $_tmp -out $_key -k 0
+		_slt=$(head -n 1 $_key)
+		sed -i "s|${_arr[2]}|$_slt|" $_paf
+	fi
+done < "$_paf"
+
+# decrypt passwords
+echo "decrypting..."
+openssl enc -aes-256-cbc -d -a -pbkdf2 -k 0 -in $_key -out $_txt
+
+# DO SOMETHING ...
+
+# remove unecrypted temporary files.
+# rm $_tmp
+# rm $_txt
