@@ -5,12 +5,7 @@
 # . read the file and encrypt it 
 # . update password as encrypted
 # . file must have format:
-# .   name1 : <pass1>
-# .   name2 : <pass2>
-# .         or 
-# .   name3 = <pass3>
-# .   name4 = <pass4>
-# .   ... 
+# .   password : <password>
 
 # file path
 _paf="passwords.txt"
