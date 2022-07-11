@@ -6,10 +6,7 @@ encrypt password file. <br />
 ```
 # some_password_file... 
 
-   name1 : <pass1>
-   name2 : <pass2>
-        or 
-   name3 = <pass3>
-   name4 = <pass4>
-   ... 
+   password : <password> 
+   
 ```
+. <password> will be replaced with a key
