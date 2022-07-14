@@ -1,0 +1,23 @@
+# decryption python3 script
+# . epa# is path to .enc files 
+# . dpa# is path to .dec files (generated)
+# . `dec` is decryption for each .enc file; specify epa# and dpa#
+
+# encrypted files
+epa1='<path>'
+epa2='<path>'
+
+# decryption files
+dpa1='<path>'
+dpa2='<path>'
+
+# decryption formula
+dec='openssl enc -aes-256-cbc -d -pbkdf2 -in ' + epa1 + ' -out ' + dpa1 + ' -k 0 '
+
+# test process
+pro = subprocess.run(["ls", "-l"], stdout=subprocess.PIPE)
+pro.stdout.decode('utf-8')
+
+
+# decryption process
+pro = subprocess.Popen(['/bin/sh', '-c', dec])
