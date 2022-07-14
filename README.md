@@ -10,4 +10,4 @@ encrypt password file. <br />
    password : <password> 
    
 ```
-. <password> will be replaced with a key
+. \<password\> will be replaced with a key
